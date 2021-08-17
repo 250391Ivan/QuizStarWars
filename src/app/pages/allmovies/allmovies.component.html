@@ -1,0 +1,30 @@
+
+<div class="container">
+    <h4 class="title"> Peliculas de Star Wars</h4>
+    <div class="alert alert-secondary" role="alert" *ngIf="showInfo">
+      Cargando Informacion ...... 
+      <div class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+     
+    </div>
+    <div class="row"  >
+        <div class="col-md-6 col-sm-12 col-lg-4 mgtop" *ngFor="let item of Movies | ordenar:'episode_id'">
+            <div class="card" style="width: 18rem;" >
+                 <img [src]="item.episode_id | imagenes" class="card-img-top" alt="...">  
+                <div class="card-body">
+                  <h5 class="card-title cursor"  (click)="GotoEpisode(item.episode_id)"><span>Titulo :</span>  {{item.title}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item "><span>Director: </span>{{item.director}}</li>
+                  <li class="list-group-item "><span>Episodio: </span>{{item.episode_id}}</li>
+                  <li class="list-group-item "><span>Fecha: </span>{{item.release_date}}</li>
+                  <p  class="card-text opening " ><span>Opening: </span>{{item.opening_crawl}}</p>
+                </ul>
+              </div>
+        </div>
+
+        </div>
+       
+</div>
+

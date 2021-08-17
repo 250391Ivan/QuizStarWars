@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="alert alert-secondary" role="alert" *ngIf="showInfo">
+        Cargando Personajes, Naves  y Planetas  ....
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div class="row" *ngIf="!showInfo">
+        <h4> Personajes  <img src="https://img.icons8.com/color/452/person-skin-type-7.png" alt="" width="8%"></h4>
+       
+        <table  class="table table-dark table-striped" >
+            <thead>
+              <tr class="table-success">
+                <th >Nombre (invertido)</th>
+                <th >Genero</th>
+                <th >Estatura</th>
+                <th >Cumpleaños</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of personajes">
+                <th >{{item.name | invertirCadena}}</th>
+                <td>{{item.gender}}</td>
+                <td>{{item.height}}</td>
+                <td>{{item.birth_year}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+    <div class="row" *ngIf="!showInfo">
+        <h4> Naves <img src="https://2.bp.blogspot.com/-xprBj-Dvr1s/WHYGKrB7GCI/AAAAAAAAAeI/26P1Golc_M0MgmX6CQjVFDXky2r-Bck9QCLcB/s1600/rocket-312767_960_720.png" alt=""  width="8%"></h4>
+        <table  class="table table-dark table-striped" >
+            <thead>
+              <tr class="table-danger">
+                <th >Nombre</th>
+                <th >Modelo</th>
+                <th >Capacidad</th>
+                <th >Costo Creditos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of naves">
+                <th >{{item.name}}</th>
+                <td>{{item.model}}</td>
+                <td>{{item.cargo_capacity}}</td>
+                <td>{{item.cost_in_credits}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+    <div class="row" *ngIf="!showInfo">
+        <h4> Planetas <img src="https://i.pinimg.com/originals/0e/a3/b6/0ea3b6b49f8c8445a2ee25b653a73840.png" alt="" width="8%"></h4>
+        <table  class="table table-dark table-striped" >
+            <thead>
+              <tr class="table-info">
+                <th >Nombre (invertido)</th>
+                <th >Gravedad</th>
+                <th >Poblacion</th>
+                <th >Clima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of planetas">
+                <th >{{item.name | invertirCadena}}</th>
+                <td>{{item.gravity}}</td>
+                <td>{{item.population}}</td>
+                <td>{{item.climate}}</td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+</div>
